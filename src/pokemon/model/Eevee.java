@@ -2,8 +2,8 @@ package pokemon.model;
 
 public class Eevee extends Pokemon implements NormalType
 {
-	public Eevee(int HP, String name)
+	public Eevee(int num, String name)
 	{
-		super(HP, name);
+		super(num, name);
 	}
 }
