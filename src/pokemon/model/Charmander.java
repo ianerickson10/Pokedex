@@ -1,6 +1,6 @@
 package pokemon.model;
 
-public class Charmander
+public class Charmander extends Pokemon implements FireType
 {
 
 }

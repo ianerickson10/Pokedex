@@ -1,6 +1,6 @@
 package pokemon.model;
 
-public class Pichu
+public class Pichu extends Pokemon implements ElectricType
 {
-
+	
 }

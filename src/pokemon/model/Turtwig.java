@@ -1,6 +1,6 @@
 package pokemon.model;
 
-public class Turtwig
+public class Turtwig extends Pokemon implements GrassType
 {
 
 }

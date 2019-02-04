@@ -1,6 +1,6 @@
 package pokemon.model;
 
-public class Gastly
+public class Gastly extends Pokemon implements GhostType
 {
 
 }
