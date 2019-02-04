@@ -1,6 +1,6 @@
 package pokemon.model;
 
-public class NormalType
+public interface NormalType
 {
 
 }
