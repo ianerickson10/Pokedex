@@ -16,5 +16,32 @@ public class PokePanel extends JPanel
 	public PokePanel(PokedexController appController)
 	{
 		super();
+		
+		
+		setupScrollPane();
+		setupPanel();
+		setupLayout();
+		setupListeners();
+	}
+	
+	
+	private void setupScrollPane()
+	{
+		
+	}
+	
+	private void setupPanel()
+	{
+		
+	}
+	
+	private void setupLayout()
+	{
+		
+	}
+	
+	private void setupListeners()
+	{
+		
 	}
 }
