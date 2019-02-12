@@ -30,6 +30,7 @@ public class PokePanel extends JPanel
 	private JLabel attackLabel;
 	private JLabel enhancementLabel;
 	private JLabel imageLabel;
+	private JLabel healthLabel;
 	
 	public PokePanel(PokedexController appController)
 	{
@@ -38,7 +39,20 @@ public class PokePanel extends JPanel
 		
 		this.appLayout = new SpringLayout();
 		
-		numberField = new
+		numberField = new JTextField("0");
+		nameField = new JTextField("My Pokename");
+		evolveField = new JTextField("false");
+		attackField = new JTextField("0");
+		enhancementField = new JTextField("0");
+		healthField = new JTextField("0");
+		
+		healthLabel = new JLabel("Health");
+		numberLabel = new JLabel("Number");
+		evolveLabel = new JLabel("Can Evolve");
+		enhancementLabel = new JLabel("Enhancement");
+		attackLabel = new JLabel("Attack");
+		nameLabel = new JLabel("Name");
+		imageLabel = new JLabel("Picture");
 		
 		
 		setupScrollPane();
