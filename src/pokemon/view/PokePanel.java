@@ -64,8 +64,22 @@ public class PokePanel extends JPanel
 	
 	private void setupScrollPane()
 	{
-		
 		this.setLayout(appLayout);
+		this.add(attackField);
+		this.add(attackLabel);
+		this.add(changeButton);
+		this.add(dropdownMenu);
+		this.add(enhancementField);
+		this.add(enhancementLabel);
+		this.add(evolveField);
+		this.add(evolveLabel);
+		this.add(healthField);
+		this.add(healthLabel);
+		this.add(imageLabel);
+		this.add(nameField);
+		this.add(nameLabel);
+		this.add(numberField);
+		this.add(numberLabel);
 	}
 	
 	private void setupPanel()
