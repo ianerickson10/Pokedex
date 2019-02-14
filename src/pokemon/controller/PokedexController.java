@@ -4,8 +4,13 @@ import java.util.ArrayList;
 
 import javax.swing.JOptionPane;
 
+import pokemon.model.Pokemon;
+import pokemon.view.PokeFrame;
+
 public class PokedexController
 {
+	private ArrayList<Pokemon> pokemonList;
+	private PokeFrame appFrame;
 	
 	public PokedexController()
 	{
@@ -70,4 +75,10 @@ public class PokedexController
 		
 		return isValid;
 	}
+	
+//	public String getName()
+//	{
+//		return name;
+//	}
+	
 }
