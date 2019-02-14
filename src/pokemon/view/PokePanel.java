@@ -90,6 +90,9 @@ public class PokePanel extends JPanel
 		this.add(nameLabel);
 		this.add(numberField);
 		this.add(numberLabel);
+		
+		imageLabel.setVerticalTextPosition(JLabel.BOTTOM);
+		imageLabel.setHorizontalTextPosition(JLabel.CENTER);
 	}
 	
 	private void setupLayout()
@@ -125,6 +128,36 @@ public class PokePanel extends JPanel
 		appLayout.putConstraint(SpringLayout.SOUTH, dropdownMenu, -6, SpringLayout.NORTH, healthLabel);
 		
 	}
+	
+	private void sendDataToController()
+	{
+		int index = dropdownMenu.getSelectedIndex();
+		
+		if (app.isInt(attackField.getText()) && app.isDouble(enhancementField.getText()) && app.isInt(healthField.getText()))
+		{
+			String [] data = new String [5];
+			
+			app.updatePokemon(index, data);
+		}
+	}
+	
+	private void changeImageDisplay(String name)
+	{
+		String path = "/pokemon/view/images/";
+		String defaultName = "ultraball";
+		String extension = ".png";
+		try
+		{
+			pokemonIcon = new ImageIcon(getClass().getResource(path + name.toLowerCase() + extension));
+		}
+		catch (NullPointerException missingFile)
+		{
+			pokemonIcon = new ImageICON(getClass().getResource(path + defaultName + extension));
+		}
+		imageLabel.setIcon(pokemonIcon);
+		repaint();
+	}
+	
 	
 	private void setupListeners()
 	{
