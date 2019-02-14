@@ -2,6 +2,8 @@ package pokemon.controller;
 
 import java.util.ArrayList;
 
+import javax.swing.JOptionPane;
+
 public class PokedexController
 {
 	
@@ -33,5 +35,39 @@ public class PokedexController
 			names[index] = pokemonList.get(index).getName();
 		}
 		return names;
+	}
+	
+	public boolean isInt(String maybeInt)
+	{
+		boolean isValid = false;
+				
+		try
+		{
+			Integer.parseInt(maybeInt);
+			isValid = true;
+		}
+		catch (NumberFormatException error)
+		{
+			JOptionPane.showMessageDialog(null, "You need to type in a whole number");
+		}
+		
+		return isValid;
+	}
+	
+	public boolean isDouble(String mightBeDouble)
+	{
+		Boolean isValid = false;
+		
+		try
+		{
+			Double.parseDouble(mightBeDouble);
+			isValid = true;
+		}
+		catch (NumberFormatException error)
+		{
+			JOptionPane.showMessageDialog(null, "Type in a decimal");
+		}
+		
+		return isValid;
 	}
 }

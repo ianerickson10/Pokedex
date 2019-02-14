@@ -152,7 +152,7 @@ public class PokePanel extends JPanel
 		}
 		catch (NullPointerException missingFile)
 		{
-			pokemonIcon = new ImageICON(getClass().getResource(path + defaultName + extension));
+			pokemonIcon = new ImageIcon(getClass().getResource(path + defaultName + extension));
 		}
 		imageLabel.setIcon(pokemonIcon);
 		repaint();
@@ -161,6 +161,22 @@ public class PokePanel extends JPanel
 	
 	private void setupListeners()
 	{
+		changeButton.addActionListener(new ActionListener()
+		{
+			public void actionPerformed(ActionEvent selection)
+			{
+				String name = dropdownMenu.getSelectedItem().toString();
+				changeImageDisplay(name);
+			}
+		});
 		
+		dropdownMenu.addActionListener(new ActionListener()
+		{
+			public void actionPerformed(ActionEvent selection)
+			{
+				String name = dropdownMenu.getSelectedItem(),toString();
+				changeImageDisplay(name);
+			}
+		});
 	}
 }
