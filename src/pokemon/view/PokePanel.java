@@ -32,12 +32,16 @@ public class PokePanel extends JPanel
 	private JLabel imageLabel;
 	private JLabel healthLabel;
 	
-	public PokePanel(PokedexController appController)
+	private ImageIcon pokemonIcon;
+	
+	public PokePanel(PokedexController app)
 	{
 		super();
 		this.app = app;
 		
 		this.appLayout = new SpringLayout();
+		
+		this.pokemonIcon = new ImageIcon(getClass().getResource("/pokrmon/view/images/pokeball.png"));
 		
 		numberField = new JTextField("number");
 		nameField = new JTextField("My Pokename");
@@ -52,7 +56,7 @@ public class PokePanel extends JPanel
 		enhancementLabel = new JLabel("Enhancement");
 		attackLabel = new JLabel("Attack");
 		nameLabel = new JLabel("Name");
-		imageLabel = new JLabel("Picture");
+		imageLabel = new JLabel("Picture", pokemonIcon, JLabel.CENTER);
 		dropdownMenu = new JComboBox<String>();
 		
 		
