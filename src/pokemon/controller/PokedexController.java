@@ -4,7 +4,12 @@ import java.util.ArrayList;
 
 import javax.swing.JOptionPane;
 
+import pokemon.model.Charmander;
+import pokemon.model.Eevee;
+import pokemon.model.Jigglypuff;
+import pokemon.model.Pichu;
 import pokemon.model.Pokemon;
+import pokemon.model.Turtwig;
 import pokemon.view.PokeFrame;
 
 public class PokedexController
@@ -14,7 +19,14 @@ public class PokedexController
 	
 	public PokedexController()
 	{
+		pokemonList = new ArrayList<Pokemon>();
+		addPokemon();
+		appFrame = new PokeFrame(this);
 		
+	}
+	
+	public void start()
+	{
 		
 	}
 	
@@ -29,6 +41,15 @@ public class PokedexController
 			current.setName(data[3]);
 			current.setCanEvolve(Boolean.parseBoolean(data[4]));
 		}
+	}
+	
+	private void addPokemon()
+	{
+		pokemonList.add(new Eevee());
+		pokemonList.add(new Charmander());
+		pokemonList.add(new Jigglypuff());
+		pokemonList.add(new Pichu());
+		pokemonList.add(new Turtwig());
 	}
 	
 	public String[] buildPokedextext()
