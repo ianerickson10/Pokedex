@@ -34,14 +34,14 @@ public class PokePanel extends JPanel
 	
 	private ImageIcon pokemonIcon;
 	
-	public PokePanel(PokePanel appPanel)
+	public PokePanel(AppController appPanel)
 	{
 		super();
 		this.app = appPanel;
 		
 		this.appLayout = new SpringLayout();
 		
-		this.pokemonIcon = new ImageIcon(getClass().getResource("/pokrmon/view/images/pokeball.png"));
+		this.pokemonIcon = new ImageIcon(getClass().getResource("/pokemon/view/images/pokeball.png"));
 		
 		numberField = new JTextField("number");
 		nameField = new JTextField("My Pokename");
@@ -133,7 +133,7 @@ public class PokePanel extends JPanel
 	{
 		int index = dropdownMenu.getSelectedIndex();
 		
-		if (app.isInt(attackField.getText()) && app.isDouble(enhancementField.getText()) && app.isInt(healthField.getText()))
+		if (app.validInt(attackField.getText()) && app.validDouble(enhancementField.getText()) && app.validInt(healthField.getText()))
 		{
 			String [] data = new String [5];
 			

@@ -63,7 +63,7 @@ public class PokedexController
 		return names;
 	}
 	
-	public boolean isInt(String maybeInt)
+	public boolean validInt(String maybeInt)
 	{
 		boolean isValid = false;
 				
@@ -80,7 +80,7 @@ public class PokedexController
 		return isValid;
 	}
 	
-	public boolean isDouble(String mightBeDouble)
+	public boolean validDouble(String mightBeDouble)
 	{
 		Boolean isValid = false;
 		
