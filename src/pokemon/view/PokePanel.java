@@ -15,6 +15,7 @@ public class PokePanel extends JPanel
 	private SpringLayout appLayout;
 	
 	private JButton changeButton;
+	private JButton saveButton;
 	private JComboBox<String> dropdownMenu;
 	
 	private JTextField numberField;
@@ -58,6 +59,7 @@ public class PokePanel extends JPanel
 		nameLabel = new JLabel("Name");
 		imageLabel = new JLabel("Picture", pokemonIcon, JLabel.CENTER);
 		dropdownMenu = new JComboBox<String>();
+		saveButton = new JButton(Save);
 		
 		
 		setupDropdown();
@@ -90,6 +92,7 @@ public class PokePanel extends JPanel
 		this.add(nameLabel);
 		this.add(numberField);
 		this.add(numberLabel);
+		this.add(saveButton);
 		
 		imageLabel.setVerticalTextPosition(JLabel.BOTTOM);
 		imageLabel.setHorizontalTextPosition(JLabel.CENTER);
@@ -176,6 +179,14 @@ public class PokePanel extends JPanel
 			{
 				String name = dropdownMenu.getSelectedItem(),toString();
 				changeImageDisplay(name);
+			}
+		});
+		
+		saveButton.addActionListener(new ActionListener()
+		{
+			public void actionPerformed(ActionEvent selection)
+			{
+				app.savePokedex();
 			}
 		});
 	}
