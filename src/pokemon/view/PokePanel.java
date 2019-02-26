@@ -59,7 +59,7 @@ public class PokePanel extends JPanel
 		nameLabel = new JLabel("Name");
 		imageLabel = new JLabel("Picture", pokemonIcon, JLabel.CENTER);
 		dropdownMenu = new JComboBox<String>();
-		saveButton = new JButton(Save);
+		saveButton = new JButton("Save");
 		
 		
 		setupDropdown();
