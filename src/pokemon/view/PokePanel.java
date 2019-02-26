@@ -11,7 +11,7 @@ import java.awt.Dimension;
 
 public class PokePanel extends JPanel
 {
-	private PokedexController app;
+	private PokePanel app;
 	private SpringLayout appLayout;
 	
 	private JButton changeButton;
@@ -34,10 +34,10 @@ public class PokePanel extends JPanel
 	
 	private ImageIcon pokemonIcon;
 	
-	public PokePanel(PokedexController app)
+	public PokePanel(PokePanel appPanel)
 	{
 		super();
-		this.app = app;
+		this.app = appPanel;
 		
 		this.appLayout = new SpringLayout();
 		

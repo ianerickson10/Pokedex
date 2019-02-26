@@ -6,6 +6,12 @@ public class Pokemon
 	
 	
 	
+	private int attack;
+	private double enhancement;
+	private int health;
+	private String name;
+	private boolean evolve;
+
 	public void setAttackPoints(int attack)
 	{
 		this.attack = attack;
@@ -29,5 +35,10 @@ public class Pokemon
 	public void setCanEvolve(boolean evolve)
 	{
 		this.evolve = evolve;
+	}
+	
+	public String getName(String name)
+	{
+		return name;
 	}
 }
