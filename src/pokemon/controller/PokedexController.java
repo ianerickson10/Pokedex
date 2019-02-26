@@ -1,15 +1,11 @@
 package pokemon.controller;
 
 import java.util.ArrayList;
+import java.io.*;
 
 import javax.swing.JOptionPane;
 
-import pokemon.model.Charmander;
-import pokemon.model.Eevee;
-import pokemon.model.Jigglypuff;
-import pokemon.model.Pichu;
-import pokemon.model.Pokemon;
-import pokemon.model.Turtwig;
+import pokemon.model.*;
 import pokemon.view.PokeFrame;
 
 public class PokedexController
