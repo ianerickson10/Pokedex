@@ -11,11 +11,11 @@ import java.awt.Dimension;
 
 public class PokePanel extends JPanel
 {
-	private PokePanel app;
+	private PokedexController app;
 	private SpringLayout appLayout;
 	
 	private JButton changeButton;
-	private JButton saveButton;
+//	private JButton saveButton;
 	private JComboBox<String> dropdownMenu;
 	
 	private JTextField numberField;
@@ -35,10 +35,10 @@ public class PokePanel extends JPanel
 	
 	private ImageIcon pokemonIcon;
 	
-	public PokePanel(AppController appPanel)
+	public PokePanel (PokedexController app)
 	{
 		super();
-		this.app = appPanel;
+		this.app = app;
 		
 		this.appLayout = new SpringLayout();
 		
@@ -59,7 +59,9 @@ public class PokePanel extends JPanel
 		nameLabel = new JLabel("Name");
 		imageLabel = new JLabel("Picture", pokemonIcon, JLabel.CENTER);
 		dropdownMenu = new JComboBox<String>();
-		saveButton = new JButton("Save");
+//		saveButton = new JButton("Save");
+		changeButton = new JButton("Change");
+		
 		
 		
 		setupDropdown();
@@ -71,7 +73,8 @@ public class PokePanel extends JPanel
 	
 	private void setupDropdown()
 	{
-		
+		DefaultComboBoxModel temp = new DefaultComboBoxModel(app.buildPokedextext());
+		dropdownMenu.setModel(temp);
 	}
 	
 	private void setupPanel()
@@ -92,7 +95,7 @@ public class PokePanel extends JPanel
 		this.add(nameLabel);
 		this.add(numberField);
 		this.add(numberLabel);
-		this.add(saveButton);
+//		this.add(saveButton);
 		
 		imageLabel.setVerticalTextPosition(JLabel.BOTTOM);
 		imageLabel.setHorizontalTextPosition(JLabel.CENTER);
@@ -102,23 +105,12 @@ public class PokePanel extends JPanel
 	{
 		appLayout.putConstraint(SpringLayout.NORTH, nameField, 10, SpringLayout.NORTH, this);
 		appLayout.putConstraint(SpringLayout.WEST, nameField, 169, SpringLayout.WEST, this);
-		appLayout.putConstraint(SpringLayout.NORTH, healthLabel, 46, SpringLayout.NORTH, this);
-		appLayout.putConstraint(SpringLayout.WEST, healthLabel, 41, SpringLayout.WEST, this);
 		appLayout.putConstraint(SpringLayout.NORTH, numberField, 6, SpringLayout.SOUTH, numberLabel);
 		appLayout.putConstraint(SpringLayout.WEST, numberField, 0, SpringLayout.WEST, numberLabel);
-		appLayout.putConstraint(SpringLayout.NORTH, numberLabel, 0, SpringLayout.NORTH, healthLabel);
 		appLayout.putConstraint(SpringLayout.EAST, numberLabel, -51, SpringLayout.EAST, this);
 		appLayout.putConstraint(SpringLayout.NORTH, evolveField, -5, SpringLayout.NORTH, evolveLabel);
 		appLayout.putConstraint(SpringLayout.WEST, evolveField, 28, SpringLayout.EAST, evolveLabel);
 		appLayout.putConstraint(SpringLayout.WEST, evolveLabel, 144, SpringLayout.WEST, this);
-		appLayout.putConstraint(SpringLayout.NORTH, attackField, 6, SpringLayout.SOUTH, attackLabel);
-		appLayout.putConstraint(SpringLayout.WEST, attackField, 0, SpringLayout.WEST, attackLabel);
-		appLayout.putConstraint(SpringLayout.NORTH, enhancementLabel, 0, SpringLayout.NORTH, attackLabel);
-		appLayout.putConstraint(SpringLayout.NORTH, attackLabel, 23, SpringLayout.SOUTH, healthField);
-		appLayout.putConstraint(SpringLayout.WEST, attackLabel, 41, SpringLayout.WEST, this);
-		appLayout.putConstraint(SpringLayout.EAST, healthField, 0, SpringLayout.EAST, attackLabel);
-		appLayout.putConstraint(SpringLayout.NORTH, enhancementField, 0, SpringLayout.NORTH, attackField);
-		appLayout.putConstraint(SpringLayout.NORTH, healthField, 0, SpringLayout.NORTH, numberField);
 		appLayout.putConstraint(SpringLayout.EAST, enhancementField, -10, SpringLayout.EAST, enhancementLabel);
 		appLayout.putConstraint(SpringLayout.EAST, enhancementLabel, -32, SpringLayout.EAST, this);
 		appLayout.putConstraint(SpringLayout.NORTH, evolveLabel, 29, SpringLayout.SOUTH, imageLabel);
@@ -127,9 +119,24 @@ public class PokePanel extends JPanel
 		appLayout.putConstraint(SpringLayout.NORTH, nameLabel, 6, SpringLayout.SOUTH, nameField);
 		appLayout.putConstraint(SpringLayout.NORTH, nameLabel, 6, SpringLayout.SOUTH, nameField);
 		appLayout.putConstraint(SpringLayout.SOUTH, imageLabel, -102, SpringLayout.SOUTH, this);
-		appLayout.putConstraint(SpringLayout.WEST, dropdownMenu, 0, SpringLayout.WEST, healthField);
-		appLayout.putConstraint(SpringLayout.SOUTH, dropdownMenu, -6, SpringLayout.NORTH, healthLabel);
-		
+		appLayout.putConstraint(SpringLayout.WEST, attackField, 41, SpringLayout.WEST, this);
+		appLayout.putConstraint(SpringLayout.SOUTH, healthLabel, -3, SpringLayout.NORTH, healthField);
+		appLayout.putConstraint(SpringLayout.NORTH, numberLabel, 46, SpringLayout.NORTH, this);
+		appLayout.putConstraint(SpringLayout.NORTH, healthField, -5, SpringLayout.NORTH, enhancementLabel);
+		appLayout.putConstraint(SpringLayout.NORTH, enhancementLabel, 23, SpringLayout.SOUTH, numberField);
+		appLayout.putConstraint(SpringLayout.NORTH, enhancementField, 6, SpringLayout.SOUTH, enhancementLabel);
+		appLayout.putConstraint(SpringLayout.EAST, healthLabel, 0, SpringLayout.EAST, attackLabel);
+		appLayout.putConstraint(SpringLayout.WEST, attackLabel, 0, SpringLayout.WEST, attackField);
+		appLayout.putConstraint(SpringLayout.SOUTH, attackLabel, -6, SpringLayout.NORTH, attackField);
+		appLayout.putConstraint(SpringLayout.NORTH, attackField, 1599, SpringLayout.NORTH, imageLabel);
+		appLayout.putConstraint(SpringLayout.WEST, dropdownMenu, 32, SpringLayout.WEST, this);
+		appLayout.putConstraint(SpringLayout.SOUTH, dropdownMenu, -53, SpringLayout.NORTH, healthLabel);
+		appLayout.putConstraint(SpringLayout.WEST, healthField, 0, SpringLayout.WEST, dropdownMenu);
+		appLayout.putConstraint(SpringLayout.NORTH, changeButton, 6, SpringLayout.SOUTH, dropdownMenu);
+		appLayout.putConstraint(SpringLayout.WEST, changeButton, 10, SpringLayout.WEST, this);
+
+//		appLayout.putConstraint(SpringLayout.SOUTH, saveButton, -10, SpringLayout.SOUTH, this);
+//		appLayout.putConstraint(SpringLayout.EAST, saveButton, -10, SpringLayout.EAST, this);
 	}
 	
 	private void sendDataToController()
@@ -181,6 +188,7 @@ public class PokePanel extends JPanel
 			public void actionPerformed(ActionEvent selection)
 			{
 				String name = dropdownMenu.getSelectedItem().toString();
+				sendDataToController();
 				changeImageDisplay(name);
 			}
 		});
@@ -190,17 +198,19 @@ public class PokePanel extends JPanel
 			public void actionPerformed(ActionEvent selection)
 			{
 				String name = dropdownMenu.getSelectedItem().toString();
-				updateFields(dropdownMenu.getSelectedItem());
+				updateFields(dropdownMenu.getSelectedIndex());
 				changeImageDisplay(name);
 			}
 		});
 		
-		saveButton.addActionListener(new ActionListener()
-		{
-			public void actionPerformed(ActionEvent selection)
-			{
-				app.savePokedex();
-			}
-		});
+//		saveButton.addActionListener(new ActionListener()
+//		{
+//			public void actionPerformed(ActionEvent selection)
+//			{
+//				app.savePokedex();
+//			}
+//		});
 	}
 }
+
+

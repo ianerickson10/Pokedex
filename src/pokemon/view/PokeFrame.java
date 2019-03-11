@@ -3,7 +3,7 @@ package pokemon.view;
 import javax.swing.JFrame;
 import pokemon.controller.PokedexController;
 
-public class PokeFrame
+public class PokeFrame extends JFrame
 {
 	private PokedexController appController;
 	private PokePanel appPanel;
@@ -13,7 +13,7 @@ public class PokeFrame
 		super();
 		
 		this.appController = appController;
-		this.appPanel = new PokePanel(appPanel);
+		this.appPanel = new PokePanel(appController);
 		
 		setupFrame();
 	}
@@ -22,7 +22,7 @@ public class PokeFrame
 	{
 		this.setContentPane(appPanel);
 		this.setTitle("Pokedex");
-		this.setSize(300, 200);
+		this.setSize(900, 600);
 		this.setResizable(false);
 		this.setVisible(true);
 	}
